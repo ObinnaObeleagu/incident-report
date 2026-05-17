@@ -70,7 +70,7 @@ function readFallback() {
 
 function writeFallback(incident) {
   const list = readFallback();
-  list.unshift(incident); // newest first
+  list.unshift(incident);
   fs.writeFileSync(FALLBACK_FILE, JSON.stringify(list, null, 2));
   console.log('[fallback] wrote incident to incidents.json — total records:', list.length);
 }
@@ -94,7 +94,7 @@ const upload = multer({
       cb(null, key);
     },
   }),
-  limits:     { fileSize: 500 * 1024 * 1024 }, // 500 MB
+  limits:     { fileSize: 5 * 1024 * 1024 * 1024 }, // 5 GB
   fileFilter(_req, file, cb) {
     if (!file.mimetype.startsWith('video/')) {
       return cb(new Error('Only video files are allowed'));
@@ -152,46 +152,62 @@ app.get('/test-spaces', async (req, res) => {
 });
 
 // ── POST /upload ────────────────────────────────────────────────────────────────
+// Accepts: multipart/form-data
+//   fields: lga (text), fileSizes (JSON array of byte counts), videos (files, up to 20)
 app.post('/upload', (req, res) => {
-  console.log('[upload] request received — starting upload');
+  console.log('[upload] request received — starting batch upload');
 
-  upload.single('video')(req, res, async (err) => {
+  upload.array('videos', 20)(req, res, async (err) => {
     if (err) {
       console.error('[upload] multer/Spaces error:', err.message);
       return res.status(400).json({ success: false, error: err.message });
     }
-    if (!req.file) {
-      console.error('[upload] no file in request');
-      return res.status(400).json({ success: false, error: 'No video file received' });
+    if (!req.files || req.files.length === 0) {
+      console.error('[upload] no files in request');
+      return res.status(400).json({ success: false, error: 'No video files received' });
     }
-
-    const url = spacesUrl(req.file.key);
-    console.log('[upload] Spaces upload complete →', url);
 
     const lga = req.body.lga;
-    const id  = uuidv4();
     const now = new Date().toISOString();
 
-    const meta = {
-      id,
-      lga,
-      filename:    req.file.originalname,
-      filepath:    url,
-      uploaded_at: now,
-      file_size:   String(req.file.size),
-    };
+    // Client-provided sizes are the authoritative source — multer-s3 can report 0
+    // when AUTO_CONTENT_TYPE modifies the stream before byte-counting completes.
+    let clientSizes = [];
+    try { clientSizes = JSON.parse(req.body.fileSizes || '[]'); } catch {}
 
-    console.log('[upload] saving metadata to Valkey — key: incident:' + id);
-    try {
-      await redis.hset(`incident:${id}`, meta);
-      console.log('[upload] Valkey save successful');
-    } catch (dbErr) {
-      console.error('[upload] Valkey unavailable, falling back to incidents.json:', dbErr.message);
-      writeFallback(meta);
+    const results = [];
+
+    for (let i = 0; i < req.files.length; i++) {
+      const file = req.files[i];
+      const url  = spacesUrl(file.key);
+      const id   = uuidv4();
+      const size = (file.size > 0) ? file.size : (clientSizes[i] || 0);
+
+      console.log(`[upload] file ${i + 1}/${req.files.length} complete → ${url} (${size} bytes)`);
+
+      const meta = {
+        id,
+        lga,
+        filename:    file.originalname,
+        filepath:    url,
+        uploaded_at: now,
+        file_size:   String(size),
+      };
+
+      console.log(`[upload] saving to Valkey — incident:${id}`);
+      try {
+        await redis.hset(`incident:${id}`, meta);
+        console.log(`[upload] Valkey save successful — ${file.originalname}`);
+      } catch (dbErr) {
+        console.error(`[upload] Valkey unavailable for ${file.originalname}, writing to incidents.json:`, dbErr.message);
+        writeFallback(meta);
+      }
+
+      results.push({ success: true, url, filename: file.originalname, size });
     }
 
-    console.log('[upload] sending success response to client');
-    res.json({ success: true, url, lga, filename: req.file.originalname });
+    console.log(`[upload] batch complete — ${results.length} file(s) processed, sending response`);
+    res.json({ success: true, uploaded: results.length, results });
   });
 });
 
@@ -199,11 +215,7 @@ app.post('/upload', (req, res) => {
 app.get('/incidents', async (req, res) => {
   try {
     const keys = await getAllIncidentKeys();
-    if (!keys.length) {
-      // Valkey is reachable but empty — still merge in any fallback records
-      const fallback = readFallback();
-      return res.json(fallback);
-    }
+    if (!keys.length) return res.json(readFallback());
 
     const pipeline = redis.pipeline();
     keys.forEach((k) => pipeline.hgetall(k));
@@ -230,10 +242,7 @@ app.get('/incidents/:lga', async (req, res) => {
 
   try {
     const keys = await getAllIncidentKeys();
-    if (!keys.length) {
-      const fallback = readFallback().filter(i => i.lga === lga);
-      return res.json(fallback);
-    }
+    if (!keys.length) return res.json(readFallback().filter(i => i.lga === lga));
 
     const pipeline = redis.pipeline();
     keys.forEach((k) => pipeline.hgetall(k));
@@ -257,5 +266,5 @@ const server = app.listen(PORT, () => {
   console.log(`Incident Report server → http://localhost:${PORT}`);
 });
 
-// Allow up to 5 minutes for large video uploads; prevents hanging requests
-server.setTimeout(5 * 60 * 1000);
+// 30-minute timeout to accommodate large 5 GB video uploads
+server.setTimeout(30 * 60 * 1000);

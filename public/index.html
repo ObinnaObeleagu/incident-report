@@ -32,179 +32,104 @@
     }
 
     /* ── Header ─────────────────────────────────────────────────────────────── */
-    header {
-      background: var(--green);
-      color: #fff;
-      padding: 0;
-      border-bottom: 4px solid var(--gold);
-    }
+    header { background: var(--green); color: #fff; padding: 0; border-bottom: 4px solid var(--gold); }
     .header-inner {
-      max-width: 900px;
-      margin: 0 auto;
-      padding: 28px 24px 24px;
-      display: flex;
-      align-items: center;
-      gap: 20px;
+      max-width: 900px; margin: 0 auto; padding: 28px 24px 24px;
+      display: flex; align-items: center; gap: 20px;
     }
     .header-crest {
-      width: 64px;
-      height: 64px;
-      border-radius: 50%;
-      background: var(--gold);
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      font-size: 1.8rem;
-      flex-shrink: 0;
-      border: 3px solid rgba(255,255,255,0.3);
+      width: 64px; height: 64px; border-radius: 50%; background: var(--gold);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 1.8rem; flex-shrink: 0; border: 3px solid rgba(255,255,255,0.3);
     }
-    .header-text h1 {
-      font-size: clamp(1.1rem, 3vw, 1.55rem);
-      font-weight: 700;
-      letter-spacing: 0.01em;
-      line-height: 1.25;
-    }
+    .header-text h1 { font-size: clamp(1.1rem, 3vw, 1.55rem); font-weight: 700; line-height: 1.25; }
     .header-text p {
-      margin-top: 5px;
-      font-size: 0.82rem;
-      opacity: 0.8;
+      margin-top: 5px; font-size: 0.82rem; opacity: 0.8;
       font-family: 'Segoe UI', system-ui, sans-serif;
-      letter-spacing: 0.04em;
-      text-transform: uppercase;
+      letter-spacing: 0.04em; text-transform: uppercase;
     }
     .header-stripe {
-      background: var(--gold);
-      text-align: center;
-      padding: 6px 16px;
-      font-size: 0.72rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green-dark);
+      background: var(--gold); text-align: center; padding: 6px 16px;
+      font-size: 0.72rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--green-dark);
     }
 
     /* ── Layout ──────────────────────────────────────────────────────────────── */
     main { max-width: 900px; margin: 0 auto; padding: 36px 20px 64px; }
 
-    .section-heading {
-      display: flex;
-      align-items: center;
-      gap: 12px;
-      margin-bottom: 20px;
-    }
-    .section-heading .line {
-      flex: 1;
-      height: 2px;
-      background: linear-gradient(90deg, var(--gold) 0%, transparent 100%);
-    }
+    .section-heading { display: flex; align-items: center; gap: 12px; margin-bottom: 20px; }
+    .section-heading .line { flex: 1; height: 2px; background: linear-gradient(90deg, var(--gold) 0%, transparent 100%); }
     .section-heading h2 {
-      font-size: 0.75rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.12em;
-      text-transform: uppercase;
-      color: var(--green);
-      white-space: nowrap;
+      font-size: 0.75rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase;
+      color: var(--green); white-space: nowrap;
     }
 
-    /* ── Card ────────────────────────────────────────────────────────────────── */
     .card {
-      background: var(--card-bg);
-      border-radius: var(--radius);
-      border: 1px solid var(--border);
-      padding: 28px;
-      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
-      margin-bottom: 28px;
+      background: var(--card-bg); border-radius: var(--radius); border: 1px solid var(--border);
+      padding: 28px; box-shadow: 0 2px 8px rgba(0,0,0,0.06); margin-bottom: 28px;
     }
 
     /* ── Form controls ───────────────────────────────────────────────────────── */
     .form-row { margin-bottom: 20px; }
     .form-row label {
-      display: block;
-      font-size: 0.78rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 600;
-      letter-spacing: 0.06em;
-      text-transform: uppercase;
-      color: var(--green);
-      margin-bottom: 8px;
+      display: block; font-size: 0.78rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 600; letter-spacing: 0.06em; text-transform: uppercase;
+      color: var(--green); margin-bottom: 8px;
     }
     .form-row label .req { color: var(--gold-dark); margin-left: 2px; }
 
     select {
-      width: 100%;
-      padding: 11px 14px;
-      border: 1px solid var(--border);
-      border-radius: 6px;
-      font-size: 0.95rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      color: var(--text);
-      background: #fff;
-      appearance: none;
+      width: 100%; padding: 11px 36px 11px 14px; border: 1px solid var(--border);
+      border-radius: 6px; font-size: 0.95rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text); background: #fff; appearance: none;
       background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='16' height='16' viewBox='0 0 24 24' fill='none' stroke='%231a5c38' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
-      background-repeat: no-repeat;
-      background-position: right 12px center;
-      padding-right: 36px;
-      cursor: pointer;
+      background-repeat: no-repeat; background-position: right 12px center; cursor: pointer;
       transition: border-color 0.15s;
     }
     select:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,92,56,0.12); }
 
     /* ── Drop zone ───────────────────────────────────────────────────────────── */
     .dropzone {
-      border: 2px dashed var(--border);
-      border-radius: 8px;
-      padding: 36px 24px;
-      text-align: center;
-      cursor: pointer;
-      position: relative;
+      border: 2px dashed var(--border); border-radius: 8px; padding: 36px 24px;
+      text-align: center; cursor: pointer; position: relative;
       transition: border-color 0.15s, background 0.15s;
     }
     .dropzone:hover, .dropzone.drag-over {
-      border-color: var(--green);
-      background: var(--green-light);
+      border-color: var(--green); background: var(--green-light);
     }
+    .dropzone.drag-over .dz-main::after { content: ' — Drop videos here!'; color: var(--green); }
     .dropzone input[type="file"] {
       position: absolute; inset: 0; opacity: 0; cursor: pointer; width: 100%; height: 100%;
     }
     .dz-icon { font-size: 2.4rem; margin-bottom: 10px; line-height: 1; }
     .dz-main { font-size: 0.95rem; font-weight: 600; font-family: 'Segoe UI', system-ui, sans-serif; }
-    .dz-hint {
-      font-size: 0.77rem;
-      color: var(--muted);
-      margin-top: 5px;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-    }
+    .dz-hint { font-size: 0.77rem; color: var(--muted); margin-top: 5px; font-family: 'Segoe UI', system-ui, sans-serif; }
+    .dz-limit { font-size: 0.75rem; color: var(--gold-dark); margin-top: 6px; font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 600; }
 
-    .file-pill {
-      display: none;
-      align-items: center;
-      gap: 10px;
-      margin-top: 12px;
-      padding: 9px 14px;
-      background: var(--green-light);
-      border: 1px solid #a3d4b5;
-      border-radius: 6px;
-      font-size: 0.84rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      color: var(--green-dark);
+    /* ── File preview list ───────────────────────────────────────────────────── */
+    .preview-list { margin-top: 14px; display: flex; flex-direction: column; gap: 6px; }
+    .preview-item {
+      display: flex; align-items: center; gap: 10px; padding: 8px 12px;
+      background: var(--green-light); border: 1px solid #a3d4b5;
+      border-radius: 6px; font-family: 'Segoe UI', system-ui, sans-serif;
     }
-    .file-pill span { flex: 1; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
-    .file-pill button {
-      background: none; border: none; cursor: pointer;
-      color: var(--green); font-size: 1rem; padding: 0; line-height: 1;
+    .preview-icon { font-size: 1.1rem; flex-shrink: 0; }
+    .preview-name { flex: 1; font-size: 0.84rem; font-weight: 600; color: var(--green-dark); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+    .preview-size { font-size: 0.76rem; color: var(--muted); white-space: nowrap; flex-shrink: 0; }
+    .preview-remove {
+      background: none; border: none; cursor: pointer; color: var(--red);
+      font-size: 0.9rem; padding: 2px 4px; border-radius: 4px; flex-shrink: 0;
+      transition: background 0.12s;
     }
+    .preview-remove:hover { background: var(--red-light); }
 
     /* ── Progress ────────────────────────────────────────────────────────────── */
     .progress-wrap { display: none; margin-top: 16px; }
     .progress-bg { height: 8px; background: #e5e7eb; border-radius: 4px; overflow: hidden; }
     .progress-fill {
-      height: 100%;
-      background: linear-gradient(90deg, var(--green) 0%, #2d8653 100%);
-      border-radius: 4px;
-      transition: width 0.1s linear;
-      width: 0%;
+      height: 100%; background: linear-gradient(90deg, var(--green) 0%, #2d8653 100%);
+      border-radius: 4px; transition: width 0.1s linear; width: 0%;
     }
     .progress-row {
       display: flex; justify-content: space-between; margin-top: 5px;
@@ -213,216 +138,184 @@
 
     /* ── Alert ───────────────────────────────────────────────────────────────── */
     .alert {
-      display: none;
-      margin-top: 16px;
-      padding: 12px 16px;
-      border-radius: 7px;
-      font-size: 0.88rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      line-height: 1.55;
+      display: none; margin-top: 16px; padding: 12px 16px; border-radius: 7px;
+      font-size: 0.88rem; font-family: 'Segoe UI', system-ui, sans-serif; line-height: 1.55;
     }
-    .alert.success {
-      background: var(--green-light);
-      border: 1px solid #a3d4b5;
-      color: var(--green-dark);
-    }
-    .alert.error {
-      background: var(--red-light);
-      border: 1px solid #f5c6c0;
-      color: var(--red);
-    }
+    .alert.success { background: var(--green-light); border: 1px solid #a3d4b5; color: var(--green-dark); }
+    .alert.error   { background: var(--red-light); border: 1px solid #f5c6c0; color: var(--red); }
 
     /* ── Submit button ───────────────────────────────────────────────────────── */
     .btn-primary {
-      width: 100%;
-      margin-top: 22px;
-      padding: 13px;
-      background: var(--green);
-      color: #fff;
-      border: none;
-      border-radius: 7px;
-      font-size: 0.95rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.04em;
-      cursor: pointer;
-      transition: background 0.15s, transform 0.1s;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      gap: 8px;
+      width: 100%; margin-top: 22px; padding: 13px; background: var(--green); color: #fff;
+      border: none; border-radius: 7px; font-size: 0.95rem;
+      font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700; letter-spacing: 0.04em;
+      cursor: pointer; transition: background 0.15s, transform 0.1s;
+      display: flex; align-items: center; justify-content: center; gap: 8px;
     }
     .btn-primary:hover:not(:disabled) { background: var(--green-dark); transform: translateY(-1px); }
     .btn-primary:disabled { opacity: 0.4; cursor: not-allowed; transform: none; }
 
-    /* ── Section 2 — Incidents ───────────────────────────────────────────────── */
-    .filter-bar {
-      display: flex;
-      flex-wrap: wrap;
-      gap: 8px;
-      margin-bottom: 20px;
+    /* ── Confirmation modal ──────────────────────────────────────────────────── */
+    .modal-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(0,0,0,0.5);
+      z-index: 1000; align-items: center; justify-content: center; padding: 20px;
     }
+    .modal-overlay.open { display: flex; }
+    .modal-box {
+      background: #fff; border-radius: 12px; padding: 28px 28px 24px;
+      max-width: 440px; width: 100%; box-shadow: 0 20px 60px rgba(0,0,0,0.25);
+    }
+    .modal-title {
+      font-size: 1.05rem; font-weight: 700; color: var(--green); margin-bottom: 12px;
+    }
+    .modal-msg {
+      font-size: 0.9rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      line-height: 1.6; color: var(--text); margin-bottom: 22px;
+    }
+    .modal-msg strong { color: var(--green); }
+    .modal-actions { display: flex; gap: 10px; justify-content: flex-end; }
+    .modal-cancel {
+      padding: 9px 20px; background: #fff; border: 1.5px solid var(--border);
+      border-radius: 6px; font-size: 0.88rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 600; color: var(--muted); cursor: pointer; transition: border-color 0.15s;
+    }
+    .modal-cancel:hover { border-color: var(--red); color: var(--red); }
+    .modal-confirm {
+      padding: 9px 20px; background: var(--green); border: none; border-radius: 6px;
+      font-size: 0.88rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 700; color: #fff; cursor: pointer; transition: background 0.15s;
+    }
+    .modal-confirm:hover { background: var(--green-dark); }
+
+    /* ── Search + sort bar ───────────────────────────────────────────────────── */
+    .search-sort-row {
+      display: flex; gap: 10px; margin-bottom: 16px; flex-wrap: wrap;
+    }
+    .search-input {
+      flex: 1; min-width: 180px; padding: 9px 14px; border: 1px solid var(--border);
+      border-radius: 6px; font-size: 0.88rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text); background: #fff; transition: border-color 0.15s;
+    }
+    .search-input:focus { outline: none; border-color: var(--green); box-shadow: 0 0 0 3px rgba(26,92,56,0.1); }
+    .sort-select {
+      width: auto; min-width: 160px; padding: 9px 36px 9px 12px; border: 1px solid var(--border);
+      border-radius: 6px; font-size: 0.88rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      color: var(--text); background: #fff; appearance: none;
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='14' height='14' viewBox='0 0 24 24' fill='none' stroke='%231a5c38' stroke-width='2'%3E%3Cpath d='M6 9l6 6 6-6'/%3E%3C/svg%3E");
+      background-repeat: no-repeat; background-position: right 10px center; cursor: pointer;
+    }
+    .sort-select:focus { outline: none; border-color: var(--green); }
+
+    /* ── Filter bar ──────────────────────────────────────────────────────────── */
+    .filter-bar { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 20px; }
     .filter-btn {
-      padding: 6px 16px;
-      border: 1.5px solid var(--border);
-      border-radius: 20px;
-      background: #fff;
-      font-size: 0.8rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 600;
-      color: var(--muted);
-      cursor: pointer;
+      padding: 6px 14px; border: 1.5px solid var(--border); border-radius: 20px;
+      background: #fff; font-size: 0.8rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 600; color: var(--muted); cursor: pointer;
       transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
-    .filter-btn:hover { border-color: var(--green); color: var(--green); }
-    .filter-btn.active {
-      background: var(--green);
-      border-color: var(--green);
-      color: #fff;
-    }
+    .filter-btn:hover  { border-color: var(--green); color: var(--green); }
+    .filter-btn.active { background: var(--green); border-color: var(--green); color: #fff; }
+    .filter-count { font-weight: 400; opacity: 0.8; }
 
     .load-btn {
-      display: block;
-      width: 100%;
-      padding: 12px;
-      background: var(--gold-light);
-      border: 1.5px solid var(--gold);
-      color: var(--gold-dark);
-      border-radius: 7px;
-      font-size: 0.9rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      cursor: pointer;
-      text-align: center;
-      transition: background 0.15s;
-      letter-spacing: 0.03em;
-      margin-bottom: 20px;
+      display: block; width: 100%; padding: 12px; background: var(--gold-light);
+      border: 1.5px solid var(--gold); color: var(--gold-dark); border-radius: 7px;
+      font-size: 0.9rem; font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700;
+      cursor: pointer; text-align: center; transition: background 0.15s;
+      letter-spacing: 0.03em; margin-bottom: 20px;
     }
     .load-btn:hover { background: #f5e8c0; }
 
     /* ── Incident cards ──────────────────────────────────────────────────────── */
-    .cards-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-      gap: 16px;
-    }
+    .cards-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
 
     .incident-card {
-      background: var(--card-bg);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      overflow: hidden;
-      box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+      background: var(--card-bg); border: 1px solid var(--border); border-radius: var(--radius);
+      overflow: hidden; box-shadow: 0 1px 4px rgba(0,0,0,0.05);
       transition: box-shadow 0.15s, transform 0.12s;
     }
     .incident-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.1); transform: translateY(-2px); }
 
     .card-header {
-      background: var(--green);
-      color: #fff;
-      padding: 10px 14px;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
+      background: var(--green); color: #fff; padding: 10px 14px;
+      display: flex; align-items: center; justify-content: space-between;
     }
-    .card-lga {
-      font-size: 0.78rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      letter-spacing: 0.08em;
-      text-transform: uppercase;
-    }
-    .card-date {
-      font-size: 0.72rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      opacity: 0.75;
-    }
+    .card-lga { font-size: 0.78rem; font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 700; letter-spacing: 0.08em; text-transform: uppercase; }
+    .card-date { font-size: 0.72rem; font-family: 'Segoe UI', system-ui, sans-serif; opacity: 0.75; }
 
     .card-body { padding: 14px; }
     .card-filename {
-      font-size: 0.85rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 600;
-      color: var(--text);
-      overflow: hidden;
-      text-overflow: ellipsis;
-      white-space: nowrap;
-      margin-bottom: 8px;
+      font-size: 0.85rem; font-family: 'Segoe UI', system-ui, sans-serif; font-weight: 600;
+      color: var(--text); overflow: hidden; text-overflow: ellipsis; white-space: nowrap; margin-bottom: 4px;
     }
-    .card-meta {
-      font-size: 0.76rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      color: var(--muted);
-      margin-bottom: 12px;
-    }
+    .card-meta { font-size: 0.76rem; font-family: 'Segoe UI', system-ui, sans-serif; color: var(--muted); margin-bottom: 12px; }
+
+    .card-actions { display: flex; flex-direction: column; gap: 6px; }
     .card-link {
-      display: block;
-      text-align: center;
-      padding: 8px 12px;
-      background: var(--gold-light);
-      border: 1.5px solid var(--gold);
-      color: var(--gold-dark);
-      border-radius: 6px;
-      font-size: 0.8rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      font-weight: 700;
-      text-decoration: none;
-      letter-spacing: 0.04em;
-      transition: background 0.15s;
+      display: block; text-align: center; padding: 7px 12px;
+      background: var(--gold-light); border: 1.5px solid var(--gold); color: var(--gold-dark);
+      border-radius: 6px; font-size: 0.8rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 700; text-decoration: none; letter-spacing: 0.03em; transition: background 0.15s;
     }
     .card-link:hover { background: #f5e8c0; }
-
-    .empty-state {
-      text-align: center;
-      padding: 52px 24px;
-      color: var(--muted);
-      font-family: 'Segoe UI', system-ui, sans-serif;
+    .card-copy {
+      display: block; width: 100%; text-align: center; padding: 7px 12px;
+      background: #fff; border: 1.5px solid var(--border); color: var(--muted);
+      border-radius: 6px; font-size: 0.8rem; font-family: 'Segoe UI', system-ui, sans-serif;
+      font-weight: 600; cursor: pointer; letter-spacing: 0.03em;
+      transition: border-color 0.15s, color 0.15s, background 0.15s;
     }
+    .card-copy:hover { border-color: var(--green); color: var(--green); background: var(--green-light); }
+
+    .empty-state { text-align: center; padding: 52px 24px; color: var(--muted); font-family: 'Segoe UI', system-ui, sans-serif; }
     .empty-state .ei { font-size: 2.5rem; margin-bottom: 12px; }
     .empty-state p { font-size: 0.9rem; }
 
     /* ── Spinner ─────────────────────────────────────────────────────────────── */
     @keyframes spin { to { transform: rotate(360deg); } }
     .spinner {
-      display: inline-block;
-      width: 16px; height: 16px;
-      border: 2.5px solid rgba(255,255,255,0.35);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin 0.65s linear infinite;
+      display: inline-block; width: 16px; height: 16px;
+      border: 2.5px solid rgba(255,255,255,0.35); border-top-color: #fff;
+      border-radius: 50%; animation: spin 0.65s linear infinite;
     }
 
     /* ── Footer ──────────────────────────────────────────────────────────────── */
     footer {
-      text-align: center;
-      padding: 20px;
-      font-size: 0.75rem;
-      font-family: 'Segoe UI', system-ui, sans-serif;
-      color: var(--muted);
-      border-top: 1px solid var(--border);
-      margin-top: 20px;
+      text-align: center; padding: 20px; font-size: 0.75rem;
+      font-family: 'Segoe UI', system-ui, sans-serif; color: var(--muted);
+      border-top: 1px solid var(--border); margin-top: 20px;
     }
   </style>
 </head>
 <body>
 
-<!-- ── Header ──────────────────────────────────────────────────────────────── -->
 <header>
-  <div class="header-stripe">
-    Official Government Portal &nbsp;·&nbsp; Ekiti State, Federal Republic of Nigeria
-  </div>
+  <div class="header-stripe">Official Government Portal &nbsp;·&nbsp; Ekiti State, Federal Republic of Nigeria</div>
   <div class="header-inner">
     <div class="header-crest">🏛️</div>
     <div class="header-text">
       <h1>Ekiti North Senatorial District<br>Incident Report Portal</h1>
-      <p>Moba &nbsp;·&nbsp; Oye &nbsp;·&nbsp; Ikole &nbsp;·&nbsp; Ido-Osi &nbsp;·&nbsp; Ilejemeje</p>
+      <p>Rep Incidence &nbsp;·&nbsp; Moba &nbsp;·&nbsp; Oye &nbsp;·&nbsp; Ikole &nbsp;·&nbsp; Ido-Osi &nbsp;·&nbsp; Ilejemeje</p>
     </div>
   </div>
 </header>
 
+<!-- ── Confirmation modal ──────────────────────────────────────────────────── -->
+<div class="modal-overlay" id="modalOverlay">
+  <div class="modal-box">
+    <div class="modal-title">Confirm Upload</div>
+    <p class="modal-msg" id="modalMsg"></p>
+    <div class="modal-actions">
+      <button class="modal-cancel" id="modalCancel" type="button">Cancel</button>
+      <button class="modal-confirm" id="modalConfirm" type="button">Confirm Upload</button>
+    </div>
+  </div>
+</div>
+
 <main>
 
-  <!-- ── Section 1: Upload Form ─────────────────────────────────────────────── -->
+  <!-- ── Section 1: Upload ──────────────────────────────────────────────────── -->
   <div class="section-heading">
     <h2>Submit Video Evidence</h2>
     <div class="line"></div>
@@ -443,23 +336,19 @@
     </div>
 
     <div class="form-row">
-      <label>Video File <span class="req">*</span></label>
+      <label>Video Files <span class="req">*</span></label>
       <div class="dropzone" id="dropzone">
-        <input type="file" id="fileInput" accept="video/*" />
+        <input type="file" id="fileInput" accept="video/*" multiple />
         <div class="dz-icon">🎥</div>
-        <div class="dz-main">Drag &amp; drop your video here</div>
-        <div class="dz-hint">or click to browse &nbsp;·&nbsp; MP4, MOV, AVI, MKV &nbsp;·&nbsp; Max 500 MB</div>
+        <div class="dz-main">Drag &amp; drop videos here</div>
+        <div class="dz-hint">or click to browse &nbsp;·&nbsp; MP4, MOV, AVI, MKV &nbsp;·&nbsp; up to 20 files</div>
+        <div class="dz-limit">Maximum file size: 5 GB per video</div>
       </div>
-      <div class="file-pill" id="filePill">
-        <span id="filePillName"></span>
-        <button type="button" id="removeFile" title="Remove">✕</button>
-      </div>
+      <div class="preview-list" id="previewList"></div>
     </div>
 
     <div class="progress-wrap" id="progressWrap">
-      <div class="progress-bg">
-        <div class="progress-fill" id="progressFill"></div>
-      </div>
+      <div class="progress-bg"><div class="progress-fill" id="progressFill"></div></div>
       <div class="progress-row">
         <span id="progressLabel">Uploading…</span>
         <span id="progressPct">0%</span>
@@ -473,105 +362,192 @@
     </button>
   </div>
 
-  <!-- ── Section 2: View Incidents ──────────────────────────────────────────── -->
+  <!-- ── Section 2: Incidents ───────────────────────────────────────────────── -->
   <div class="section-heading">
     <h2>View Incident Records</h2>
     <div class="line"></div>
   </div>
 
-  <button class="load-btn" id="loadBtn" type="button">
-    📂 &nbsp;Load All Incident Reports
-  </button>
+  <button class="load-btn" id="loadBtn" type="button">📂 &nbsp;Load All Incident Reports</button>
 
   <div id="incidentsSection" style="display:none">
-    <div class="filter-bar" id="filterBar">
-      <button class="filter-btn active" data-filter="all" type="button">All LGAs</button>
-      <button class="filter-btn" data-filter="Rep_Incidence" type="button">Rep Incidence</button>
-      <button class="filter-btn" data-filter="Moba" type="button">Moba</button>
-      <button class="filter-btn" data-filter="Oye" type="button">Oye</button>
-      <button class="filter-btn" data-filter="Ikole" type="button">Ikole</button>
-      <button class="filter-btn" data-filter="Ido_Osi" type="button">Ido-Osi</button>
-      <button class="filter-btn" data-filter="Ilejemeje" type="button">Ilejemeje</button>
+    <div class="search-sort-row">
+      <input type="search" id="searchInput" class="search-input" placeholder="🔍  Search by filename…" />
+      <select id="sortSelect" class="sort-select">
+        <option value="newest">Newest First</option>
+        <option value="oldest">Oldest First</option>
+        <option value="largest">Largest File</option>
+        <option value="smallest">Smallest File</option>
+      </select>
     </div>
+
+    <div class="filter-bar" id="filterBar">
+      <button class="filter-btn active" data-filter="all"          type="button">All LGAs <span class="filter-count" id="cnt-all"></span></button>
+      <button class="filter-btn"        data-filter="Rep_Incidence" type="button">Rep Incidence <span class="filter-count" id="cnt-Rep_Incidence"></span></button>
+      <button class="filter-btn"        data-filter="Moba"          type="button">Moba <span class="filter-count" id="cnt-Moba"></span></button>
+      <button class="filter-btn"        data-filter="Oye"           type="button">Oye <span class="filter-count" id="cnt-Oye"></span></button>
+      <button class="filter-btn"        data-filter="Ikole"         type="button">Ikole <span class="filter-count" id="cnt-Ikole"></span></button>
+      <button class="filter-btn"        data-filter="Ido_Osi"       type="button">Ido-Osi <span class="filter-count" id="cnt-Ido_Osi"></span></button>
+      <button class="filter-btn"        data-filter="Ilejemeje"     type="button">Ilejemeje <span class="filter-count" id="cnt-Ilejemeje"></span></button>
+    </div>
+
     <div id="cardsContainer"></div>
   </div>
 
 </main>
 
-<footer>
-  Ekiti North Senatorial District Incident Report System &nbsp;·&nbsp; Ekiti State Government
-</footer>
+<footer>Ekiti North Senatorial District Incident Report System &nbsp;·&nbsp; Ekiti State Government</footer>
 
 <script>
   'use strict';
 
-  let selectedFile  = null;
+  // ── State ───────────────────────────────────────────────────────────────────
+  let selectedFiles = [];
   let uploading     = false;
   let allIncidents  = [];
   let activeFilter  = 'all';
+  let searchQuery   = '';
+  let sortOrder     = 'newest';
 
-  // ── LGA select ──────────────────────────────────────────────────────────────
-  document.getElementById('lgaSelect').addEventListener('change', syncBtn);
-
-  // ── File input ──────────────────────────────────────────────────────────────
-  const dropzone  = document.getElementById('dropzone');
-  const fileInput = document.getElementById('fileInput');
-
-  fileInput.addEventListener('change', (e) => {
-    if (e.target.files[0]) applyFile(e.target.files[0]);
-  });
-
-  dropzone.addEventListener('dragover', (e) => {
-    e.preventDefault();
-    dropzone.classList.add('drag-over');
-  });
-  dropzone.addEventListener('dragleave', () => dropzone.classList.remove('drag-over'));
-  dropzone.addEventListener('drop', (e) => {
-    e.preventDefault();
-    dropzone.classList.remove('drag-over');
-    if (e.dataTransfer.files[0]) applyFile(e.dataTransfer.files[0]);
-  });
-
-  document.getElementById('removeFile').addEventListener('click', () => {
-    if (uploading) return;
-    clearFile();
-  });
-
-  function applyFile(file) {
-    if (!file.type.startsWith('video/')) {
-      showAlert('uploadAlert', 'Please select a valid video file (MP4, MOV, AVI, MKV…).', 'error');
-      return;
-    }
-    if (file.size > 500 * 1024 * 1024) {
-      showAlert('uploadAlert', 'File exceeds the 500 MB limit. Please choose a smaller file.', 'error');
-      return;
-    }
-    selectedFile = file;
-    document.getElementById('filePillName').textContent =
-      `${file.name} — ${(file.size / 1048576).toFixed(1)} MB`;
-    document.getElementById('filePill').style.display = 'flex';
-    hideAlert('uploadAlert');
-    syncBtn();
+  // ── Helpers ─────────────────────────────────────────────────────────────────
+  function formatSize(bytes) {
+    const b = parseInt(bytes, 10) || 0;
+    if (b === 0)                          return '—';
+    if (b < 1024 * 1024)                  return (b / 1024).toFixed(2) + ' KB';
+    if (b < 1024 * 1024 * 1024)           return (b / (1024 * 1024)).toFixed(2) + ' MB';
+    return (b / (1024 * 1024 * 1024)).toFixed(2) + ' GB';
   }
 
-  function clearFile() {
-    selectedFile = null;
-    fileInput.value = '';
-    document.getElementById('filePill').style.display = 'none';
-    syncBtn();
+  function lgaLabel(lga) {
+    if (lga === 'Ido_Osi')       return 'Ido-Osi';
+    if (lga === 'Rep_Incidence') return 'Rep Incidence';
+    return lga || '—';
+  }
+
+  function esc(str) {
+    return String(str || '')
+      .replace(/&/g, '&amp;').replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;').replace(/"/g, '&quot;');
+  }
+
+  function showAlert(id, html, type) {
+    const el = document.getElementById(id);
+    el.innerHTML = html; el.className = `alert ${type}`; el.style.display = 'block';
+  }
+  function hideAlert(id) { document.getElementById(id).style.display = 'none'; }
+
+  function showProgress(pct, label) {
+    document.getElementById('progressWrap').style.display = 'block';
+    document.getElementById('progressFill').style.width   = pct + '%';
+    document.getElementById('progressPct').textContent    = pct + '%';
+    document.getElementById('progressLabel').textContent  = label;
   }
 
   function syncBtn() {
     const lga = document.getElementById('lgaSelect').value;
-    document.getElementById('uploadBtn').disabled = !(lga && selectedFile) || uploading;
+    document.getElementById('uploadBtn').disabled = !(lga && selectedFiles.length) || uploading;
   }
 
-  // ── Upload ──────────────────────────────────────────────────────────────────
-  document.getElementById('uploadBtn').addEventListener('click', doUpload);
+  // ── File selection ──────────────────────────────────────────────────────────
+  const dropzone  = document.getElementById('dropzone');
+  const fileInput = document.getElementById('fileInput');
 
+  document.getElementById('lgaSelect').addEventListener('change', syncBtn);
+
+  fileInput.addEventListener('change', (e) => applyFiles(e.target.files));
+
+  dropzone.addEventListener('dragover',  (e) => { e.preventDefault(); dropzone.classList.add('drag-over'); });
+  dropzone.addEventListener('dragleave', ()  => dropzone.classList.remove('drag-over'));
+  dropzone.addEventListener('drop', (e) => {
+    e.preventDefault();
+    dropzone.classList.remove('drag-over');
+    if (e.dataTransfer.files.length) applyFiles(e.dataTransfer.files);
+  });
+
+  function applyFiles(fileList) {
+    const MAX = 5 * 1024 * 1024 * 1024;
+    let rejected = 0;
+
+    Array.from(fileList).forEach(f => {
+      if (!f.type.startsWith('video/')) { rejected++; return; }
+      if (f.size > MAX)                 { rejected++; return; }
+      // avoid duplicate filenames in the queue
+      if (!selectedFiles.find(x => x.name === f.name && x.size === f.size)) {
+        selectedFiles.push(f);
+      }
+    });
+
+    if (rejected) {
+      showAlert('uploadAlert', `${rejected} file(s) skipped — must be video files under 5 GB.`, 'error');
+    } else {
+      hideAlert('uploadAlert');
+    }
+
+    renderPreviewList();
+    syncBtn();
+  }
+
+  function removeFile(idx) {
+    selectedFiles.splice(idx, 1);
+    renderPreviewList();
+    syncBtn();
+  }
+
+  function renderPreviewList() {
+    const el = document.getElementById('previewList');
+    if (!selectedFiles.length) { el.innerHTML = ''; el.style.display = 'none'; return; }
+
+    el.style.display = 'flex';
+    el.innerHTML = selectedFiles.map((f, i) => `
+      <div class="preview-item">
+        <span class="preview-icon">🎬</span>
+        <span class="preview-name" title="${esc(f.name)}">${esc(f.name)}</span>
+        <span class="preview-size">${formatSize(f.size)}</span>
+        <button class="preview-remove" data-idx="${i}" type="button" title="Remove">✕</button>
+      </div>`).join('');
+  }
+
+  document.getElementById('previewList').addEventListener('click', (e) => {
+    const btn = e.target.closest('.preview-remove');
+    if (btn) removeFile(parseInt(btn.dataset.idx, 10));
+  });
+
+  // ── Upload confirmation ─────────────────────────────────────────────────────
+  document.getElementById('uploadBtn').addEventListener('click', () => {
+    if (!selectedFiles.length || uploading) return;
+    const lga      = document.getElementById('lgaSelect').value;
+    const count    = selectedFiles.length;
+    const total    = selectedFiles.reduce((s, f) => s + f.size, 0);
+    const sizeStr  = formatSize(total);
+    const videoStr = count === 1 ? '1 video' : `${count} videos`;
+
+    document.getElementById('modalMsg').innerHTML =
+      `You are about to upload <strong>${videoStr}</strong> to <strong>${lgaLabel(lga)}</strong>.<br>
+       Total size: <strong>${sizeStr}</strong>.<br><br>Continue?`;
+
+    document.getElementById('modalOverlay').classList.add('open');
+  });
+
+  document.getElementById('modalCancel').addEventListener('click', () => {
+    document.getElementById('modalOverlay').classList.remove('open');
+  });
+
+  document.getElementById('modalConfirm').addEventListener('click', () => {
+    document.getElementById('modalOverlay').classList.remove('open');
+    doUpload();
+  });
+
+  // close modal on backdrop click
+  document.getElementById('modalOverlay').addEventListener('click', (e) => {
+    if (e.target === document.getElementById('modalOverlay')) {
+      document.getElementById('modalOverlay').classList.remove('open');
+    }
+  });
+
+  // ── Upload ──────────────────────────────────────────────────────────────────
   async function doUpload() {
     const lga = document.getElementById('lgaSelect').value;
-    if (!lga || !selectedFile || uploading) return;
+    if (!lga || !selectedFiles.length || uploading) return;
 
     uploading = true;
     syncBtn();
@@ -583,33 +559,39 @@
 
     const fd = new FormData();
     fd.append('lga', lga);
-    fd.append('video', selectedFile);
+    // pass client-side sizes so server can fix multer-s3 size=0 bug
+    fd.append('fileSizes', JSON.stringify(selectedFiles.map(f => f.size)));
+    selectedFiles.forEach(f => fd.append('videos', f));
 
     try {
-      await xhrUpload('/upload', fd, (pct) => {
+      const data = await xhrUpload('/upload', fd, (pct) => {
         showProgress(pct, 'Uploading…');
         btn.innerHTML = `<span class="spinner"></span> ${pct}%`;
       });
 
+      const uploaded = data.uploaded || 1;
+      const total    = selectedFiles.length;
       showProgress(100, 'Complete');
       showAlert(
         'uploadAlert',
-        `✓ Incident report submitted successfully for <strong>${lgaLabel(lga)}</strong>.`,
+        `✓ <strong>${uploaded} of ${total} video${total > 1 ? 's' : ''} uploaded successfully</strong> to <strong>${lgaLabel(lga)}</strong>.`,
         'success'
       );
-      clearFile();
+
+      selectedFiles = [];
+      fileInput.value = '';
+      renderPreviewList();
       document.getElementById('lgaSelect').value = '';
+
       if (document.getElementById('incidentsSection').style.display !== 'none') {
         await loadIncidents();
       }
     } catch (err) {
-      showAlert('uploadAlert', err.message || 'Upload failed. Please try again.', 'error');
+      showAlert('uploadAlert', `Upload failed: ${err.message}`, 'error');
     } finally {
       uploading = false;
       btn.innerHTML = 'Submit Incident Report';
-      setTimeout(() => {
-        document.getElementById('progressWrap').style.display = 'none';
-      }, 1500);
+      setTimeout(() => { document.getElementById('progressWrap').style.display = 'none'; }, 1800);
       syncBtn();
     }
   }
@@ -624,16 +606,17 @@
       });
 
       xhr.addEventListener('load', () => {
-        if (xhr.status >= 200 && xhr.status < 300) return resolve();
-        let msg = `Upload failed (HTTP ${xhr.status})`;
+        if (xhr.status >= 200 && xhr.status < 300) {
+          try { resolve(JSON.parse(xhr.responseText)); } catch { resolve({}); }
+          return;
+        }
+        let msg = `Server error (HTTP ${xhr.status})`;
         try { const b = JSON.parse(xhr.responseText); if (b.error) msg = b.error; } catch {}
         reject(new Error(msg));
       });
 
-      xhr.addEventListener('error', () =>
-        reject(new Error('Network error — please check your connection and try again.'))
-      );
-
+      xhr.addEventListener('error',   () => reject(new Error('Network error — please check your connection.')));
+      xhr.addEventListener('timeout', () => reject(new Error('Upload timed out — try a smaller file or check your connection.')));
       xhr.send(formData);
     });
   }
@@ -651,41 +634,79 @@
       const res = await fetch('/incidents');
       if (!res.ok) throw new Error(`Server error ${res.status}`);
       allIncidents = await res.json();
-      renderCards(activeFilter);
+      updateFilterCounts();
+      renderCards();
     } catch (err) {
       allIncidents = [];
       document.getElementById('cardsContainer').innerHTML = `
-        <div class="empty-state">
-          <div class="ei">⚠️</div>
-          <p>Could not load incidents: ${esc(err.message)}</p>
-        </div>`;
+        <div class="empty-state"><div class="ei">⚠️</div>
+        <p>Could not load incidents: ${esc(err.message)}</p></div>`;
     }
   }
 
-  // ── Filter bar ──────────────────────────────────────────────────────────────
+  // ── Filter counts ───────────────────────────────────────────────────────────
+  function updateFilterCounts() {
+    const lgas = ['Rep_Incidence', 'Moba', 'Oye', 'Ikole', 'Ido_Osi', 'Ilejemeje'];
+    const el = document.getElementById('cnt-all');
+    if (el) el.textContent = allIncidents.length ? `(${allIncidents.length})` : '';
+
+    lgas.forEach(lga => {
+      const span = document.getElementById(`cnt-${lga}`);
+      if (!span) return;
+      const n = allIncidents.filter(i => i.lga === lga).length;
+      span.textContent = n ? `(${n})` : '';
+    });
+  }
+
+  // ── Filter / sort / search ──────────────────────────────────────────────────
   document.getElementById('filterBar').addEventListener('click', (e) => {
     const btn = e.target.closest('.filter-btn');
     if (!btn) return;
     document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
     btn.classList.add('active');
     activeFilter = btn.dataset.filter;
-    renderCards(activeFilter);
+    renderCards();
   });
 
-  // ── Render cards ────────────────────────────────────────────────────────────
-  function renderCards(filter) {
-    const list = filter === 'all'
-      ? allIncidents
-      : allIncidents.filter(i => i.lga === filter);
+  document.getElementById('searchInput').addEventListener('input', (e) => {
+    searchQuery = e.target.value.toLowerCase().trim();
+    renderCards();
+  });
 
+  document.getElementById('sortSelect').addEventListener('change', (e) => {
+    sortOrder = e.target.value;
+    renderCards();
+  });
+
+  function getDisplayList() {
+    let list = activeFilter === 'all'
+      ? [...allIncidents]
+      : allIncidents.filter(i => i.lga === activeFilter);
+
+    if (searchQuery) {
+      list = list.filter(i => (i.filename || '').toLowerCase().includes(searchQuery));
+    }
+
+    if (sortOrder === 'newest')   list.sort((a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at));
+    if (sortOrder === 'oldest')   list.sort((a, b) => new Date(a.uploaded_at) - new Date(b.uploaded_at));
+    if (sortOrder === 'largest')  list.sort((a, b) => parseInt(b.file_size, 10) - parseInt(a.file_size, 10));
+    if (sortOrder === 'smallest') list.sort((a, b) => parseInt(a.file_size, 10) - parseInt(b.file_size, 10));
+
+    return list;
+  }
+
+  // ── Render cards ────────────────────────────────────────────────────────────
+  function renderCards() {
+    const list = getDisplayList();
     const container = document.getElementById('cardsContainer');
 
     if (!list.length) {
-      container.innerHTML = `
-        <div class="empty-state">
-          <div class="ei">📂</div>
-          <p>${filter === 'all' ? 'No incident reports have been submitted yet.' : `No incidents recorded for ${lgaLabel(filter)}.`}</p>
-        </div>`;
+      const msg = searchQuery
+        ? `No results matching "<strong>${esc(searchQuery)}</strong>".`
+        : activeFilter === 'all'
+          ? 'No incident reports have been submitted yet.'
+          : `No incidents recorded for ${lgaLabel(activeFilter)} yet.`;
+      container.innerHTML = `<div class="empty-state"><div class="ei">📂</div><p>${msg}</p></div>`;
       return;
     }
 
@@ -694,10 +715,23 @@
 
   function cardHTML(inc) {
     const filename = inc.filename || (inc.filepath ? inc.filepath.split('/').pop() : '—');
-    const size     = inc.file_size ? `${(parseInt(inc.file_size, 10) / 1048576).toFixed(1)} MB` : '—';
+    const size     = formatSize(inc.file_size);
     const date     = inc.uploaded_at
       ? new Date(inc.uploaded_at).toLocaleString('en-GB', { dateStyle: 'medium', timeStyle: 'short' })
       : '—';
+    const url = inc.filepath || '';
+
+    const viewBtn = url
+      ? `<a class="card-link" href="${esc(url)}" target="_blank" rel="noopener">▶ View Video</a>`
+      : `<span class="card-link" style="opacity:0.4;cursor:not-allowed">No URL</span>`;
+
+    const dlBtn = url
+      ? `<a class="card-link" href="${esc(url)}" download target="_blank" rel="noopener">⬇ Download Video</a>`
+      : '';
+
+    const copyBtn = url
+      ? `<button class="card-copy copy-btn" data-url="${esc(url)}" type="button">📋 Copy Link</button>`
+      : '';
 
     return `
       <div class="incident-card">
@@ -708,45 +742,47 @@
         <div class="card-body">
           <div class="card-filename" title="${esc(filename)}">${esc(filename)}</div>
           <div class="card-meta">Size: ${size}</div>
-          ${inc.filepath
-            ? `<a class="card-link" href="${esc(inc.filepath)}" target="_blank" rel="noopener">▶ View Video</a>`
-            : `<span class="card-link" style="opacity:0.4;cursor:not-allowed">No URL</span>`}
+          <div class="card-actions">
+            ${viewBtn}
+            ${dlBtn}
+            ${copyBtn}
+          </div>
         </div>
       </div>`;
   }
 
-  // ── Helpers ─────────────────────────────────────────────────────────────────
-  function lgaLabel(lga) {
-    if (lga === 'Ido_Osi')      return 'Ido-Osi';
-    if (lga === 'Rep_Incidence') return 'Rep Incidence';
-    return lga || '—';
-  }
+  // ── Copy link (event delegation) ────────────────────────────────────────────
+  document.getElementById('cardsContainer').addEventListener('click', async (e) => {
+    const btn = e.target.closest('.copy-btn');
+    if (!btn) return;
 
-  function showProgress(pct, label) {
-    document.getElementById('progressWrap').style.display = 'block';
-    document.getElementById('progressFill').style.width   = pct + '%';
-    document.getElementById('progressPct').textContent    = pct + '%';
-    document.getElementById('progressLabel').textContent  = label;
-  }
+    const url  = btn.dataset.url;
+    const orig = btn.innerHTML;
 
-  function showAlert(id, html, type) {
-    const el = document.getElementById(id);
-    el.innerHTML     = html;
-    el.className     = `alert ${type}`;
-    el.style.display = 'block';
-  }
+    try {
+      if (navigator.clipboard) {
+        await navigator.clipboard.writeText(url);
+      } else {
+        // fallback for HTTP contexts
+        const ta = document.createElement('textarea');
+        ta.value = url; ta.style.position = 'fixed'; ta.style.opacity = '0';
+        document.body.appendChild(ta); ta.select();
+        document.execCommand('copy'); document.body.removeChild(ta);
+      }
+      btn.innerHTML = '✓ Copied!';
+      btn.style.color = 'var(--green)';
+      btn.style.borderColor = 'var(--green)';
+    } catch {
+      btn.innerHTML = '✗ Failed';
+      btn.style.color = 'var(--red)';
+    }
 
-  function hideAlert(id) {
-    document.getElementById(id).style.display = 'none';
-  }
-
-  function esc(str) {
-    return String(str || '')
-      .replace(/&/g, '&amp;')
-      .replace(/</g, '&lt;')
-      .replace(/>/g, '&gt;')
-      .replace(/"/g, '&quot;');
-  }
+    setTimeout(() => {
+      btn.innerHTML = orig;
+      btn.style.color = '';
+      btn.style.borderColor = '';
+    }, 1600);
+  });
 </script>
 </body>
 </html>
