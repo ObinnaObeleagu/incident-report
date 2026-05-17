@@ -82,6 +82,8 @@ const upload = multer({
     bucket:      process.env.DO_SPACES_BUCKET,
     acl:         'public-read',
     contentType: multerS3.AUTO_CONTENT_TYPE,
+    partSize:    10 * 1024 * 1024,  // 10 MB per multipart part
+    queueSize:   10,                 // 10 concurrent parts per file
     key(req, file, cb) {
       console.log('[multer-s3] streaming file to Spaces →', file.originalname);
       const lga = req.body.lga;
@@ -89,12 +91,16 @@ const upload = multer({
         return cb(new Error(`Invalid LGA. Must be one of: ${VALID_LGAS.join(', ')}`));
       }
       const safeName = path.basename(file.originalname).replace(/[^a-zA-Z0-9._-]/g, '_');
-      const key = `incident_reports/${lga}/${Date.now()}_${safeName}`;
+      const ward     = (req.body.ward || '').trim();
+      // collapse spaces and slashes to underscores so ward never creates extra path segments
+      const safeWard = ward.replace(/[\s/\\]+/g, '_').replace(/_+/g, '_').replace(/^_|_$/g, '');
+      const key = safeWard
+        ? `incident_reports/${lga}/${safeWard}/${Date.now()}_${safeName}`
+        : `incident_reports/${lga}/${Date.now()}_${safeName}`;
       console.log('[multer-s3] destination key →', key);
       cb(null, key);
     },
   }),
-  limits:     { fileSize: 5 * 1024 * 1024 * 1024 }, // 5 GB
   fileFilter(_req, file, cb) {
     if (!file.mimetype.startsWith('video/')) {
       return cb(new Error('Only video files are allowed'));
@@ -153,11 +159,11 @@ app.get('/test-spaces', async (req, res) => {
 
 // ── POST /upload ────────────────────────────────────────────────────────────────
 // Accepts: multipart/form-data
-//   fields: lga (text), fileSizes (JSON array of byte counts), videos (files, up to 20)
+//   fields: lga (text), fileSizes (JSON array of byte counts), videos (files, up to 100)
 app.post('/upload', (req, res) => {
   console.log('[upload] request received — starting batch upload');
 
-  upload.array('videos', 20)(req, res, async (err) => {
+  upload.array('videos', 100)(req, res, async (err) => {
     if (err) {
       console.error('[upload] multer/Spaces error:', err.message);
       return res.status(400).json({ success: false, error: err.message });
@@ -167,8 +173,9 @@ app.post('/upload', (req, res) => {
       return res.status(400).json({ success: false, error: 'No video files received' });
     }
 
-    const lga = req.body.lga;
-    const now = new Date().toISOString();
+    const lga  = req.body.lga;
+    const ward = (req.body.ward || '').trim();
+    const now  = new Date().toISOString();
 
     // Client-provided sizes are the authoritative source — multer-s3 can report 0
     // when AUTO_CONTENT_TYPE modifies the stream before byte-counting completes.
@@ -188,6 +195,7 @@ app.post('/upload', (req, res) => {
       const meta = {
         id,
         lga,
+        ward,
         filename:    file.originalname,
         filepath:    url,
         uploaded_at: now,
@@ -260,11 +268,40 @@ app.get('/incidents/:lga', async (req, res) => {
   }
 });
 
+// ── GET /incidents/:lga/:ward ───────────────────────────────────────────────────
+app.get('/incidents/:lga/:ward', async (req, res) => {
+  const { lga } = req.params;
+  const ward = decodeURIComponent(req.params.ward).trim();
+
+  if (!VALID_LGAS.includes(lga)) {
+    return res.status(400).json({ error: `Invalid LGA. Must be one of: ${VALID_LGAS.join(', ')}` });
+  }
+
+  try {
+    const keys = await getAllIncidentKeys();
+    if (!keys.length) return res.json(readFallback().filter(i => i.lga === lga && i.ward === ward));
+
+    const pipeline = redis.pipeline();
+    keys.forEach((k) => pipeline.hgetall(k));
+    const results = await pipeline.exec();
+
+    const incidents = results
+      .map(([err, data]) => (err || !data ? null : data))
+      .filter((d) => d && d.lga === lga && d.ward === ward)
+      .sort((a, b) => new Date(b.uploaded_at) - new Date(a.uploaded_at));
+
+    res.json(incidents);
+  } catch (err) {
+    console.warn(`[GET /incidents/${lga}/${ward}] Valkey unavailable, reading from incidents.json:`, err.message);
+    res.json(readFallback().filter(i => i.lga === lga && i.ward === ward));
+  }
+});
+
 // ── Start ───────────────────────────────────────────────────────────────────────
 const PORT   = parseInt(process.env.PORT || '3000', 10);
 const server = app.listen(PORT, () => {
   console.log(`Incident Report server → http://localhost:${PORT}`);
 });
 
-// 30-minute timeout to accommodate large 5 GB video uploads
-server.setTimeout(30 * 60 * 1000);
+// 6-hour timeout to accommodate very large video uploads
+server.setTimeout(6 * 60 * 60 * 1000);
